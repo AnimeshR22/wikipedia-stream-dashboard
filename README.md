@@ -121,12 +121,9 @@ Open your browser and go to:
 
 ---
 
-## Demo and Screenshots
+## Demo
 
-![Demo](assets/demo.gif)
-
-Add screenshots of your dashboard and a short demo video/gif here!
-
+![Demo](assets/wikipedia-realtime.gif)
 ---
 
 ## Project Structure
