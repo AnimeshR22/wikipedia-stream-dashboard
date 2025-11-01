@@ -1,0 +1,79 @@
+/* Fixes the white border issue by targeting the root HTML/Body */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #111111; /* Set the default background */
+}
+
+/* This is the container for our animated subtitle */
+.data-flow-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.flow-node {
+  background-color: #333;
+  color: #AAAAFF;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin: 5px; /* Added margin for wrapping */
+  font-weight: bold;
+  
+  /* Apply the animation */
+  animation-name: glow;
+  animation-duration: 2.5s; /* Total animation cycle length */
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  
+  /* Set a default non-glowing state */
+  box-shadow: 0 0 5px rgba(170, 170, 255, 0.5);
+}
+
+.flow-arrow {
+  color: #555;
+  font-size: 20px;
+  margin: 0 5px;
+}
+
+/* --- THIS IS THE SEQUENCING FIX --- */
+/* We use nth-child to select each node. Note that the arrows
+are also children, so the nodes are at positions 1, 3, 5, 7, 9.
+We apply a different delay to each one.
+*/
+.flow-node:nth-child(1) { animation-delay: 0s; }    /* Wikipedia */
+.flow-node:nth-child(3) { animation-delay: 0.5s; }  /* Kafka */
+.flow-node:nth-child(5) { animation-delay: 1.0s; }  /* Spark */
+.flow-node:nth-child(7) { animation-delay: 1.5s; }  /* Redis */
+.flow-node:nth-child(9) { animation-delay: 2.0s; }  /* Dash */
+
+
+/* Keyframe for the glowing animation */
+@keyframes glow {
+  0% {
+    /* Start/End state */
+    box-shadow: 0 0 5px rgba(170, 170, 255, 0.5);
+  }
+  50% {
+    /* Peak glow state */
+    box-shadow: 0 0 25px 12px #AAAAFF;
+  }
+  100% {
+    /* Back to Start/End state */
+    box-shadow: 0 0 5px rgba(170, 170, 255, 0.5);
+  }
+}
+
+/* This is the class for your dynamic summary sentence */
+.live-summary-text {
+    margin-top: 25px;
+    font-size: 1.1em;
+    font-style: italic;
+    color: #DDDDFF;
+    line-height: 1.6;
+}
+
