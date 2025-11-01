@@ -123,7 +123,9 @@ Open your browser and go to:
 
 ## Demo and Screenshots
 
-screenshots of the dashboard and a short demo video coming up!
+![Demo](assets/demo.gif)
+
+Add screenshots of your dashboard and a short demo video/gif here!
 
 ---
 
